@@ -7,6 +7,7 @@ const int package_max_value = 200;
 
 int valeur = 0;
 int cpt = 0;
+long timer = 0;
 
 Gsender* setMailParams(String smtp_server, int port, String login, String password, String mail_sender, String subject) {
   Gsender *sender = Gsender::get_instance();
@@ -45,18 +46,22 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   valeur = analogRead(A0);
-
- if(cpt != 1) {
-   if(valeur < letter_max_value && valeur > package_max_value) {
-     sendMailNotification("mailbox.iot2018@gmail.com", "Vous avez reçu une lettre. Pensez à aller vérifier votre boîte aux lettres ! ;)");
-      cpt++;
-   } else if (valeur < package_max_value) {
-     sendMailNotification("mailbox.iot2018@gmail.com", "Vous avez reçu un colis. Pensez à aller vérifier votre boîte aux lettres ! ;)");
-     cpt++;
-   }
- }
-
-  Serial.print("0 600 ");
   Serial.println(valeur);
+
+  if(cpt == 0 && valeur < letter_max_value) {
+    cpt++;
+    delay(5000);
+    valeur = analogRead(A0);
+    Serial.println(valeur);
+
+    if(valeur < letter_max_value) {
+      sendMailNotification("mailbox.iot2018@gmail.com", "Vous avez reçu un colis. Pensez à aller vérifier votre boîte aux lettres ! ;)");
+    } else {
+      sendMailNotification("mailbox.iot2018@gmail.com", "Vous avez reçu une lettre. Pensez à aller vérifier votre boîte aux lettres ! ;)");
+    }
+  }
+
+//  Serial.print("0 600 ");
+//  Serial.println(valeur);
   delay(25);
 }

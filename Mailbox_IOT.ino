@@ -3,10 +3,11 @@
 
 const int LASER = D5;
 const int letter_max_value = 430;
-const int package_max_value = 200;
 
 int valeur = 0;
-int cpt = 0;
+int nb_letter = 0;
+int nb_package = 0;
+
 long timer = 0;
 
 Gsender* setMailParams(String smtp_server, int port, String login, String password, String mail_sender, String subject) {
@@ -36,7 +37,8 @@ void sendMailNotification(String recipient, String body) {
 }
 
 void setup() {
-  cpt = 0;
+  nb_letter = 0;
+  nb_package = 0;
   
   digitalWrite(LASER, HIGH);
   pinMode(LASER, OUTPUT);
@@ -48,16 +50,17 @@ void loop() {
   valeur = analogRead(A0);
   Serial.println(valeur);
 
-  if(cpt == 0 && valeur < letter_max_value) {
-    cpt++;
+  if((nb_letter == 0 || nb_package == 0) && valeur < letter_max_value) {
     delay(5000);
     valeur = analogRead(A0);
     Serial.println(valeur);
 
-    if(valeur < letter_max_value) {
+    if(valeur < letter_max_value && nb_package == 0) {
       sendMailNotification("mailbox.iot2018@gmail.com", "Vous avez reçu un colis. Pensez à aller vérifier votre boîte aux lettres ! ;)");
-    } else {
+      nb_package++;
+    } else if(nb_package == 0) {
       sendMailNotification("mailbox.iot2018@gmail.com", "Vous avez reçu une lettre. Pensez à aller vérifier votre boîte aux lettres ! ;)");
+      nb_letter++;
     }
   }
 

@@ -27,5 +27,13 @@ The onboard system is composed with a micro computer connected to a laser and a 
 
 To detect if the content is a letter or a package, a countdown is trigger to check, after an amount of time, if the photoresistor signal is back to it's initial state. If it's the case then it's a letter, else a package.
 
+## Web app
+
+The web app allows you to configure some paramters as the email address where to send an email and the subject of the email.
+
+Here a view of the web app
+
+![web app](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/web_app.png)
+
 Here some view of our prototype
 ![proto1](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/Proto1.jpg)

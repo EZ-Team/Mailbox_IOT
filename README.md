@@ -35,5 +35,10 @@ Here a view of the web app
 
 ![web app](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/web_app.png)
 
+## Problem
+
+We got some problem when integrated the speaker and the operational amplifier module (based on LM358  operational amplifier).
+So at this time we don't have the sound feature working.
+
 Here some view of our prototype
 ![proto1](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/Proto1.jpg)

@@ -6,7 +6,7 @@ Mailbox IOT is complete system composed of a micro computer, a mailbox and a web
 
 ## Hardware
 
-![ESP8266](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/esp82.66.jpg)
+![ESP8266](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/esp8266.jpg)
 We use an ESP8266
 
 We also use this componants
@@ -17,7 +17,7 @@ We also use this componants
 * Operational Amplifier
 * Speaker
 
-![Schema](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/schema2.jpg)
+![Schema](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/Schema2.png)
 
 ## How it works
 

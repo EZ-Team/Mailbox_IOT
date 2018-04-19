@@ -42,3 +42,4 @@ void wifi_connect_loop(const char* ssid, const char* password, uint16_t reconnec
     }
   }
 }
+

@@ -43,3 +43,4 @@ class Gsender
         const char* getError();
 };
 #endif // G_SENDER
+

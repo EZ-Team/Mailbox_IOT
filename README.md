@@ -4,9 +4,24 @@
 
 Mailbox IOT is complete system composed of a micro computer, a mailbox and a web app that send you notification through email when you receive a real letter or package.
 
+## Hardware
+
+![ESP8266](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/esp82.66.jpg)
+We use an ESP8266
+
+We also use this componants
+
+* Photoresistor
+* Laser
+* Resistor
+* Operational Amplifier
+* Speaker
+
+![Schema](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/schema2.jpg)
+
 ## How it works
 
-The onboard system is composed with a micro computer connected to a red LED and a photoresistor. When letters are pushed into the mailbox, they blocks the light thus the processor can handled the difference between initial light signal receive by the photoresistor. When the signal change an email is sent to notifiy the client that is mailbox is full.
+The onboard system is composed with a micro computer connected to a laser and a photoresistor. When letters are pushed into the mailbox, they blocks the light thus the processor can handled the difference between initial light signal receive by the photoresistor. When the signal change an email is sent to notifiy the client that is mailbox is full.
 
 ![Schema](https://github.com/EZ-Team/Mailbox_IOT/blob/master/resources/schema.jpg)
 

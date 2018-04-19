@@ -4,7 +4,7 @@
 const int LASER = D5;
 const int letter_max_value = 430;
 
-int valeur = 0;
+int value = 0;
 int nb_letter = 0;
 int nb_package = 0;
 
@@ -26,7 +26,7 @@ void sendMailNotification(String recipient, String body) {
   Serial.begin(115200);
   wifi_connect_loop("ESGI", "Reseau-GES");
 
-  Gsender *sender = setMailParams("smtp.gmail.com", 465, "bWFpbGJveC5pb3QyMDE4QGdtYWlsLmNvbQo=", "ZXptYWlsYm94MjAxOAo=", "mailbox.iot2018@gmail.com", "Vous avez reçu du courrier !");
+  Gsender *sender = setMailParams("smtp.gmail.com", 465, "bWFpbGJveC5pb3QyMDE4QGdtYWlsLmNvbQo=", "ZXptYWlsYm94MjAxOAo=", "mailbox.iot2018@gmail.com", "You have received mail !");
 
     if(sender->send(recipient, body)) {
         Serial.println("Message send.");
@@ -39,7 +39,7 @@ void sendMailNotification(String recipient, String body) {
 void setup() {
   nb_letter = 0;
   nb_package = 0;
-  
+
   digitalWrite(LASER, HIGH);
   pinMode(LASER, OUTPUT);
   Serial.begin(9600);
@@ -47,24 +47,24 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  valeur = analogRead(A0);
-  Serial.println(valeur);
+  value = analogRead(A0);
+  Serial.println(value);
 
-  if((nb_letter == 0 || nb_package == 0) && valeur < letter_max_value) {
+  if((nb_letter == 0 || nb_package == 0) && value < letter_max_value) {
     delay(5000);
-    valeur = analogRead(A0);
-    Serial.println(valeur);
+    value = analogRead(A0);
+    Serial.println(value);
 
-    if(valeur < letter_max_value && nb_package == 0) {
-      sendMailNotification("mailbox.iot2018@gmail.com", "Vous avez reçu un colis. Pensez à aller vérifier votre boîte aux lettres ! ;)");
+    if(value < letter_max_value && nb_package == 0) {
+      sendMailNotification("mailbox.iot2018@gmail.com", "You have received a package. Remember to go check your mailbox ! ;)");
       nb_package++;
     } else if(nb_package == 0) {
-      sendMailNotification("mailbox.iot2018@gmail.com", "Vous avez reçu une lettre. Pensez à aller vérifier votre boîte aux lettres ! ;)");
+      sendMailNotification("mailbox.iot2018@gmail.com", "You have received a letter. Remember to go check your mailbox ! ;)");
       nb_letter++;
     }
   }
 
 //  Serial.print("0 600 ");
-//  Serial.println(valeur);
+//  Serial.println(value);
   delay(25);
 }

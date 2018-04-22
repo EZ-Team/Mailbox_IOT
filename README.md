@@ -1,3 +1,10 @@
+# Installation
+
+## What is needed ?
+
+* Arduino :  https://www.arduino.cc/en/main/software
+* If you use windows/OSx you will probably need drivers: https://wiki.wemos.cc/downloads
+
 # Mailbox IOT
 
 ## What is Mailbox IOT
